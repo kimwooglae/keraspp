@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import os
 
 import matplotlib
+import tensorflow as tf
 
 def save_history_history(fname, history_history, fold=''):
     np.save(os.path.join(fold, fname), history_history)
@@ -18,8 +19,13 @@ def plot_acc(history, title=None):
     if not isinstance(history, dict):
         history = history.history
 
-    plt.plot(history['accuracy'])
-    plt.plot(history['val_accuracy'])
+    if tf.__version__.startswith('1.'):
+        plt.plot(history['acc'])
+        plt.plot(history['val_acc'])
+    else:
+        plt.plot(history['accuracy'])
+        plt.plot(history['val_accuracy'])
+        
     if title is not None:
         plt.title(title)
     plt.ylabel('Accuracy')

@@ -104,7 +104,7 @@ class MiniVGGNetModel(Model):
 	def __init__(self, classes, chanDim=-1):
 		# call the parent constructor
 		super(MiniVGGNetModel, self).__init__()
-
+		print('__init__')
 		# initialize the layers in the first (CONV => RELU) * 2 => POOL
 		# layer set
 		self.conv1A = Conv2D(32, (3, 3), padding="same")
@@ -137,6 +137,7 @@ class MiniVGGNetModel(Model):
 		self.softmax = Activation("softmax")
 
 	def call(self, inputs):
+		print('call')
 		# build the first (CONV => RELU) * 2 => POOL layer set
 		x = self.conv1A(inputs)
 		x = self.act1A(x)

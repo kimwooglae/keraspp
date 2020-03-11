@@ -16,9 +16,9 @@ import logging
 logging.getLogger("tensorflow").setLevel(logging.CRITICAL)
 
 # import the necessary packages
-from pyimagesearch.models import MiniVGGNetModel
-from pyimagesearch.models import minigooglenet_functional
-from pyimagesearch.models import shallownet_sequential
+from model import MiniVGGNetModel
+from model import minigooglenet_functional
+from model import shallownet_sequential
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.metrics import classification_report
 from tensorflow.keras.preprocessing.image import ImageDataGenerator

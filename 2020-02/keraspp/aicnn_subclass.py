@@ -19,7 +19,7 @@ from . import sfile
 
 
 class CNN(Model):
-    def __init__(self, nb_classes, in_shape=None):
+    def __init__(self, nb_classes, in_shape):
         super().__init__()
         self.nb_classes = nb_classes
         self.in_shape = in_shape
@@ -123,8 +123,7 @@ class Machine():
     def set_model(self):
         nb_classes = self.nb_classes
         data = self.data
-        self.model = CNN(nb_classes=nb_classes, in_shape=data.input_shape)
-
+        self.model = CNN(nb_classes=nb_classes, in_shape=data.input_shape)        
 
     def fit_model(self, epochs=10, batch_size=128, verbose=1):
         data = self.data
